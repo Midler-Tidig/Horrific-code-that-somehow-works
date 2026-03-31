@@ -1,0 +1,56 @@
+def interleave_lists(left, right):
+    left_list = []
+    right_list = []
+    final_list = []
+    #for i in left, right:
+
+    switch = True
+    
+    #for hello in range(len(left)):
+    #    something = left[hello]
+    #    #left_list.append(something)
+    #    final_list.append(something)
+    #
+    #for hey in range(len(right)):
+    #    anything = right[hey]
+    #    #right_list.append(anything)
+    #    final_list.append(anything)
+    #
+    #final_list.append(left_list)
+    #final_list.append(right_list)
+    #
+    #return final_list #left_list, right_list
+    while True:
+
+        if left == [] and right == []:
+            break
+            
+        if switch == True:
+            #for hello in range(len(left)):
+            if left != []:
+                if left == []:
+                    switch = False
+                    continue
+                something = left[0]
+                final_list.append(something)
+                left.pop(0)
+                switch = False
+            if left == []:
+                switch = False
+                continue
+    
+        if switch == False:
+            #for hey in range(len(right)):
+            if right != []:
+                if right == []:
+                    switch = True
+                    continue
+                anything = right[0]
+                final_list.append(anything)
+                right.pop(0)
+                switch = True
+            if right == []:
+                switch = True
+                continue
+
+    return final_list
