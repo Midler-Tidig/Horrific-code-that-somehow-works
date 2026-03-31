@@ -1,0 +1,52 @@
+def decode_battle_chant(chant):
+    #decoded = ""
+    #current_letter = ""
+
+    #for ch in chant:
+    #    if ch >= "0" and ch <= "9":
+    #        decoded += current_letter * int(ch)
+    #    else:
+    #        current_letter = ch
+    #
+    #return decoded
+    
+    #number = ""
+    #previous = ""
+    #for ch in chant:
+    #    if ch not in "0123456789":
+    #        previous = ch
+    #        #decoded = previous * int(number)
+    #    elif ch >= "0" and ch <= "9":
+    #        number += ch
+    #    else:
+    #        continue
+    #
+    #    if ch not in "0123456789":
+    #        previous = ch
+    #    decoded = previous * int(number)
+    ##decoded = previous * int(number)
+    #    #if not ch >= "0" and ch <= "9":
+    
+    #return decoded, number, previous
+
+
+    number = ""
+    previous = ""
+    first = True
+    decoded = ""
+    for ch in chant:
+        if ch not in "0123456789" and first == True:
+            previous = ch
+            first = False
+            continue
+        elif ch >= "0" and ch <= "9":
+            number += ch
+            continue
+    
+        #if ch not in "0123456789":
+        decoded += previous * int(number)
+        number = ""
+        previous = ch
+    #decoded = previous * int(number)
+    
+    return decoded + (previous * int(number))
