@@ -1,0 +1,22 @@
+def pack_shipping_batches(labels, batch_size):
+    
+    if labels == [] or batch_size < 1:
+        return []
+
+    new_list = []
+    other_list = []
+    
+    for i in range(0, len(labels)):
+        #if len(other_list) <= batch_size:
+            #new_list.append(labels)
+            #new_list.append(labels[i])
+            #new_list.append(i)
+        other_list.append(labels[i])
+        if len(other_list) == batch_size:
+            new_list.append(other_list)
+            other_list = []
+        #else:
+        #    new_list.append(labels[i])
+    if other_list != []:
+        new_list.append(other_list)
+    return new_list
