@@ -1,0 +1,168 @@
+#def build_hollow_diamond(size, fill_char):
+#    string1 = ""
+#    for i in range(size):
+#        if i == (size // 2) + 1:
+#            string1 += fill_char
+#        else:
+#            string1 += " "
+#    #return string1
+#
+#    string2 = ""
+#    for i in range(size):
+#        if i == ((size // 2) + 1) +1 or i == ((size // 2) + 1) - 1:
+#            string2 += fill_char
+#        else:
+#            string2 += " "
+#    #return string2
+#
+#    string3 = ""
+#    for i in range(size):
+#        if i == 
+        
+def build_hollow_diamond(size, fill_char):
+    if size == 1:
+        return fill_char
+
+    top_and_bottom = ""
+    middle = ""
+    bigger_middle = ""
+    for i in range(size):
+        
+        if size == 3:
+            for i in range(size):
+                if i == (size // 2):
+                    top_and_bottom += fill_char
+                    break
+                top_and_bottom += " "
+
+            for i in range(size):
+                if i == 0:
+                    bigger_middle += fill_char
+                    continue
+                if i == size-1:
+                    bigger_middle += fill_char
+                    break
+                bigger_middle += " "
+
+            final_string = f"{top_and_bottom}\n{bigger_middle}\n{top_and_bottom}"
+            break
+            return final_string
+               
+        if size == 5:
+            for i in range(size):
+                if i == (size // 2):
+                    top_and_bottom += fill_char
+                    break
+                top_and_bottom += " "
+        
+            for i in range(size):
+                if i == (size // 2) - 1:
+                    middle += fill_char
+                    continue
+                if i == (size // 2) + 1:
+                    middle += fill_char
+                    break
+                middle += " "
+        
+            for i in range(size):
+                if i == 0:
+                    bigger_middle += fill_char
+                    continue
+                if i == size-1:
+                    bigger_middle += fill_char
+                    break
+                bigger_middle += " "
+        
+            final_string = f"{top_and_bottom}\n{middle}\n{bigger_middle}\n{middle}\n{top_and_bottom}"
+            break
+
+
+        if size == 7:
+            one_more = ""
+            for i in range(size):
+                if i == (size // 2):
+                    top_and_bottom += fill_char
+                    break
+                top_and_bottom += " "
+        
+            for i in range(size):
+                if i == (size // 2) - 1:
+                    middle += fill_char
+                    continue
+                if i == (size // 2) + 1:
+                    middle += fill_char
+                    break
+                middle += " "
+
+            for i in range(size):
+                if i == 1:
+                    one_more += fill_char
+                    continue
+                if i == size-2:
+                    one_more += fill_char
+                    break
+                one_more += " "
+        
+            for i in range(size):
+                if i == 0:
+                    bigger_middle += fill_char
+                    continue
+                if i == size-1:
+                    bigger_middle += fill_char
+                    break
+                bigger_middle += " "
+        
+            final_string = f"{top_and_bottom}\n{middle}\n{one_more}\n{bigger_middle}\n{one_more}\n{middle}\n{top_and_bottom}"
+            break
+
+        if size == 9:
+            yet_more = ""
+            one_more = ""
+            for i in range(size):
+                one_more = ""
+                if i == (size // 2):
+                    top_and_bottom += fill_char
+                    break
+                top_and_bottom += " "
+        
+            for i in range(size):
+                if i == (size // 2) - 1:
+                    middle += fill_char
+                    continue
+                if i == (size // 2) + 1:
+                    middle += fill_char
+                    break
+                middle += " "
+
+            for i in range(size):
+                if i == 2:
+                    one_more += fill_char
+                    continue
+                if i == size-3:
+                    one_more += fill_char
+                    break
+                one_more += " "
+
+            for i in range(size):
+                if i == 1:
+                    yet_more += fill_char
+                    continue
+                if i == size-2:
+                    yet_more += fill_char
+                    break
+                yet_more += " "
+        
+            for i in range(size):
+                if i == 0:
+                    bigger_middle += fill_char
+                    continue
+                if i == size-1:
+                    bigger_middle += fill_char
+                    break
+                bigger_middle += " "
+        
+            final_string = f"{top_and_bottom}\n{middle}\n{one_more}\n{yet_more}\n{bigger_middle}\n{yet_more}\n{one_more}\n{middle}\n{top_and_bottom}"
+            break
+
+    
+    return final_string
