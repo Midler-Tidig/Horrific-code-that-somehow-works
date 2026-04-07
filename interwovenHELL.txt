@@ -1,0 +1,70 @@
+def weave_playlists(playlist_one, playlist_two):
+    new_list = []
+
+    if len(playlist_one) >= len(playlist_two):
+        for i in range(len(playlist_one)):
+            if i >= len(playlist_two):
+                new_list.append(playlist_one[i])
+                continue
+            new_list.append(playlist_one[i])
+            new_list.append(playlist_two[i])
+
+    if len(playlist_one) < len(playlist_two):
+        for i in range(len(playlist_two)):
+            if i >= len(playlist_one):
+                new_list.append(playlist_two[i])
+                continue
+            new_list.append(playlist_one[i])
+            new_list.append(playlist_two[i])
+    #count = 0
+    #one_part = len(playlist_one) - len(playlist_two)
+    #two_part = len(playlist_two) - len(playlist_one)
+    
+    #for i in range(len(playlist_one)):
+        #if len(playlist_two) < len(playlist_one):
+        #if playlist_one in new_list:
+        #    new_list.append(playlist_two[i])
+        #    continue
+        #if playlist_two in new_list:
+        #    new_list.append(playlist_one[i])
+        #    continue
+        #if len(playlist_one) < len(playlist_two):
+        #if len(new_list) >= len(playlist_one) * 2:
+        #    new_list.append(playlist_two[-playlist_one])
+        #    continue
+    #    if len(playlist_two) > len(playlist_one):
+    #        for i in range(len(playlist_two)):
+                #if i >= len(playlist_two):
+                #    new_list.append(playlist_one[i])
+                #    continue
+    #            if i >= len(playlist_one):
+    #                new_list.append(playlist_two[i])
+    #                continue
+    #            new_list.append(playlist_one[i])
+    #            new_list.append(playlist_two[i])
+    #    if i >= len(playlist_two):
+    #        new_list.append(playlist_one[i])
+    #        continue
+    #    if i >= len(playlist_one):
+    #        new_list.append(playlist_two[i])
+    #        continue
+    #    new_list.append(playlist_one[i])
+    #    new_list.append(playlist_two[i])
+        #new_list.append(playlist_one[i:])
+        #new_list.append(playlist_two[i:])
+        #new_list.append(playlist_one[i])
+        #if len(playlist_two) < len(playlist_one):
+        #    new_list.append(playlist_two[-len(playlist_one)])
+        #new_list.append(playlist_two[i])
+    #while len(new_list) < len(playlist_one) + len(playlist_two):
+    #    new_list.append(playlist_one[count-1])
+    #    if count == len(playlist_one):
+    #        new_list.append(playlist_two[count-1])
+    #    new_list.append(playlist_two[count-1])
+    #    if count == len(playlist_two):
+    #        new_list.append(playlist_one[count-1])
+        #new_list += playlist_one[count]
+        #new_list += playlist_two[count]
+    #    count += 1
+
+    return new_list
