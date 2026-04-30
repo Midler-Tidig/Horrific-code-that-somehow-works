@@ -1,0 +1,65 @@
+def apply_move(position, steps):
+    return position + steps
+
+
+def apply_score(score, points):
+    return score + points
+
+
+def apply_double(position, score, target):
+    if target == position:
+        return position * 2
+    elif target == score:
+        return score * 2
+
+
+def summarize_commands(commands):
+    final_position = 0
+    final_score = 0
+    applied_commands = 0
+    ignored_commands = 0
+    position = 0
+    steps = 0
+    #apply_move(position, steps)
+    score = 0
+    points = 0
+    #apply_score(score, points)
+    target = ""
+    #apply_double(position, score, target)
+    valid_commands = ["move", "score", "reset", "double"]
+
+    for command in commands:
+        #if len(command) == 1 or command != "reset":
+        #    ignored_commands += 1
+        #    continue
+        if command == []:
+            ignored_commands += 1
+            continue
+        if command == ():
+            ignored_commands += 1
+            continue
+        if command[0] not in valid_commands:
+            ignored_commands += 1
+            continue
+        if len(command) == 1:
+            if command[0] == "reset":
+                final_position = 0
+                final_score = 0
+            else:
+                ignored_commands += 1
+                continue
+        if len(command) == 2:
+            if command[0] == "move":
+                final_position += command[1]
+            if command[0] == "score":
+                final_score += command[1]
+            if command[0] == "double":
+                if command[1] == "position":
+                    final_position *= 2
+                elif command[1] == "score":
+                    final_score *= 2
+        applied_commands += 1
+    return final_position, final_score, applied_commands, ignored_commands
+        
+
+
