@@ -1,0 +1,122 @@
+def clean_text(text):
+    return text.strip()
+
+
+def parse_log_line(line):
+    parts = line.split(",")
+    if len(parts) != 2:
+        return None
+        
+    name = clean_text(parts[0])
+    if name == "":
+        return None
+        
+    try:
+        minutes = int(clean_text(parts[1]))
+        if minutes == "" or minutes < 1:
+            return None
+    except ValueError:
+        return None
+
+    return name, minutes
+
+
+def add_project_minutes(project_totals, project_order, project, minutes):
+    pass
+
+
+def build_report(project_totals, project_order):
+    pass
+    #projects_string = f"Projects: {project_totals}"
+    #totals_string = f"Total minutes: {"
+
+#def summarize_time_logs(lines):
+#    projects = []
+#    total_minutes = 0
+#    #projects_string = f"Projects: {len(projects)}"
+#    totals_string = f"Total minutes: {total_minutes}"
+    
+#    for line in lines:
+#        result = parse_log_line(line)
+#        if result == None:
+#            continue
+#        name, minutes = result
+#        if name not in projects:
+#            projects.append((name, minutes))
+            
+            
+#        total_minutes += minutes
+
+#    projects_string = f"Projects: {len(projects)}"
+#    totals_string = f"Total minutes: {total_minutes}"
+#    return projects#projects_string, totals_string
+
+    
+#def summarize_time_logs(lines):
+#    summary = {}
+#    summary["Projects"] = 0
+#    #summary["Total_minutes"] = 0
+#    total_minutes = 0
+    
+#    for line in lines:
+#        result = parse_log_line(line)
+#        if result == None:
+#            continue
+#        name, minutes = result
+
+#        if name not in summary:
+#            summary[name] = minutes
+#            summary["Projects"] += 1
+
+#        else:
+#            summary[name] += minutes
+
+#        total_minutes += minutes
+        
+#    summary["Total minutes"] = total_minutes  
+    
+#    return summary
+        
+def summarize_time_logs(lines):
+    if lines == []:
+        return (f"Projects: 0\n"
+               f"Total minutes: 0")
+    summary = {}
+    summary["Projects"] = 0
+    #summary["Total_minutes"] = 0
+    total_minutes = 0
+    
+    for line in lines:
+        result = parse_log_line(line)
+        if result == None:
+            continue
+        name, minutes = result
+
+        if name not in summary:
+            summary[name] = minutes
+            summary["Projects"] += 1
+
+        else:
+            summary[name] += minutes
+
+        total_minutes += minutes
+        
+    summary["Total minutes"] = total_minutes  
+
+    thing_strings = []
+    projects_string = ""
+    minutes_string = ""
+    for thing, number in summary.items():
+        if thing == "Projects":
+            projects_string = f"Projects: {number}"
+        elif thing == "Total minutes":
+            minutes_string = f"Total minutes: {total_minutes}"
+        else:
+            thing_strings.append(f"- {thing}: {number}")
+
+    hope_strings = "\n".join(thing_strings)
+
+    final_string = (f"{projects_string}\n"
+                    f"{hope_strings}\n"
+                    f"{minutes_string}")
+    return final_string
